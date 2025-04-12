@@ -1,25 +1,38 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Formulaire avec Budget</title>
-</head>
 <body>
-  <form action="http://fnode1.astrast.host:7031" method="POST">
-    <label for="nom">Nom :</label><br>
-    <input type="text" id="nom" name="nom" required><br><br>
 
-    <label for="prenom">Prénom :</label><br>
-    <input type="text" id="prenom" name="prenom" required><br><br>
+  <h1>Passer une commande</h1>
 
-    <label for="description">Description :</label><br>
-    <textarea id="description" name="description" required></textarea><br><br>
+  <form id="formCommande">
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" name="nom" required>
 
-    <label for="budget">Budget (€) :</label><br>
-    <input type="number" id="budget" name="budget" required><br><br>
+    <label for="prenom">Prénom :</label>
+    <input type="text" id="prenom" name="prenom" required>
 
-    <button type="submit">Envoyer</button>
+    <label for="budget">Budget (€) :</label>
+    <input type="number" id="budget" name="budget" required>
+
+    <label for="description">Description du projet :</label>
+    <textarea id="description" name="description" rows="4" required></textarea>
+
+    <label for="numero">Numéro de téléphone :</label>
+    <input type="tel" id="numero" name="numero" pattern="[0-9]{10}" required placeholder="Ex: 0612345678">
+
+    <button type="submit">Envoyer la commande</button>
   </form>
+
+  <p id="confirmation">Merci de votre commande ! 💚</p>
+
+  <script>
+    const form = document.getElementById("formCommande");
+    const confirmation = document.getElementById("confirmation");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // Stop rechargement
+      confirmation.style.display = "block"; // Affiche le message
+      form.reset(); // Reset du formulaire
+    });
+  </script>
+
 </body>
 </html>
-
