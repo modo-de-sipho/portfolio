@@ -1,0 +1,45 @@
+<html>
+<body>
+
+  <h1>Envoyer une commande</h1>
+  
+  <form id="commandeForm">
+    <input type="text" name="nom" placeholder="Nom" required />
+    <input type="text" name="prenom" placeholder="Prénom" required />
+    <input type="number" name="budget" placeholder="Budget (€)" required />
+    <input type="text" name="numero" placeholder="Numéro de téléphone" required />
+    <textarea name="description" placeholder="Description du projet..." required></textarea>
+    <button type="submit">Envoyer la commande</button>
+  </form>
+
+  <div id="message"></div>
+
+  <script>
+    document.getElementById('commandeForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const data = {};
+      formData.forEach((value, key) => data[key] = value);
+
+      try {
+        const response = await fetch("http://localhost:8000/envoyer", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        document.getElementById("message").textContent = result.message;
+      } catch (err) {
+        document.getElementById("message").textContent = "Erreur lors de l'envoi de la commande 😢";
+        document.getElementById("message").style.color = "red";
+        console.error(err);
+      }
+    });
+  </script>
+
+</body>
+</html>
