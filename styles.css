@@ -1,1 +1,36 @@
+.txt-infos{
+    color: #0004ff;
+    font-size: 10vh;
+}
 
+.css{
+    margin-left: -1vw;
+
+}
+
+.txt-editeurs{
+    color: yellow;
+    font-size: 7vh;
+}
+
+.txt-langu{
+    color: yellow;
+    font-size: 5vh;
+}
+
+.competence-txt{
+    font-style: 10vh;
+}
+
+.ico{
+    max-height: 200px ;
+    max-width: 100px;
+    display: block;
+}
+
+body{
+    background: linear-gradient(rgb(0, 0, 0), rgb(0, 66, 22));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
