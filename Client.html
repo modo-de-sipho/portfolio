@@ -2,10 +2,38 @@
 <html>
 <head>
     <title>Questionnaire Client</title>
+    <script>
+        // Fonction pour envoyer les données via AJAX
+        async function sendForm(event) {
+            event.preventDefault(); // Empêche le rechargement de la page
+
+            // Récupération des données du formulaire
+            const formData = new FormData(document.getElementById('clientForm'));
+
+            try {
+                // Envoi des données au serveur via fetch
+                const response = await fetch('https://fnode1.astrast.host:7031/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Erreur HTTP : ${response.status}`);
+                }
+
+                // Traitement de la réponse du serveur
+                const result = await response.text();
+                alert(result); // Affiche un message de confirmation
+            } catch (error) {
+                console.error('Erreur lors de l\'envoi des données :', error);
+                alert('Une erreur s\'est produite. Veuillez réessayer.');
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>Questionnaire Client</h1>
-    <form action="http://localhost:5000/submit" method="post">
+    <form id="clientForm" onsubmit="sendForm(event)">
         <label for="name">Nom:</label>
         <input type="text" id="name" name="name" required><br><br>
 
