@@ -2,57 +2,50 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Formulaire de Contact</title>
-  <style>
-    body { font-family: Arial, sans-serif; background: #f0f0f0; padding: 20px; }
-    form { background: white; padding: 20px; border-radius: 8px; max-width: 500px; margin: auto; }
-    label { display: block; margin-top: 15px; }
-    input, textarea { width: 100%; padding: 8px; box-sizing: border-box; }
-    button { margin-top: 20px; padding: 10px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
-    button:hover { background: #0056b3; }
-  </style>
+  <title>Questionnaire</title>
 </head>
 <body>
-  <h1 style="text-align:center;">Fais-moi tes infos, c'est pour le bon plan 😎</h1>
-  <form id="contactForm">
+  <h1>Donne-nous tes infos</h1>
+  <form id="questionnaire">
     <label>
-      Nom :
-      <input type="text" name="nom" required placeholder="Votre nom">
+      Nom:<br>
+      <input type="text" name="nom" placeholder="Ton nom" required>
     </label>
+    <br><br>
     <label>
-      Prénom :
-      <input type="text" name="prenom" required placeholder="Votre prénom">
+      Prénom:<br>
+      <input type="text" name="prenom" placeholder="Ton prénom" required>
     </label>
+    <br><br>
     <label>
-      Budget (en €) :
-      <input type="number" name="budget" required placeholder="Votre budget" min="0">
+      Budget:<br>
+      <input type="number" step="0.01" name="budget" placeholder="Ton budget" required>
     </label>
+    <br><br>
     <label>
-      Description :
-      <textarea name="description" required placeholder="Décris ton projet"></textarea>
+      Description:<br>
+      <textarea name="description" placeholder="Décris ton projet" rows="4" required></textarea>
     </label>
+    <br><br>
     <label>
-      Numéro de téléphone :
-      <input type="tel" name="telephone" required placeholder="Ex : 0612345678" pattern="^0[1-9](\d{8})$" title="Numéro français valide, ex: 0612345678">
+      Numéro de téléphone:<br>
+      <input type="tel" name="telephone" placeholder="0612345678" pattern="[0-9]{10}" required>
     </label>
-    <button type="submit">Envoyer 🚀</button>
+    <br><br>
+    <button type="submit">Envoyer</button>
   </form>
 
   <script>
-    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+    const form = document.getElementById('questionnaire');
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const formData = new FormData(e.target);
+      // Extraction des données du formulaire
+      const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
-
-      // Petites vérifications côté client, si besoin (ex: vérification supplémentaire du budget, etc.)
-      if(isNaN(data.budget) || data.budget < 0){
-        alert("Le budget doit être un nombre positif !");
-        return;
-      }
-
+      
       try {
-        const response = await fetch('http://fnode1.astrast.host:7031/recevoir', {
+        const res = await fetch('http://fnode1.astrast.host:7031/recevoir', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -60,15 +53,18 @@
           body: JSON.stringify(data)
         });
 
-        if (!response.ok) {
-          throw new Error(`Erreur: ${response.statusText}`);
+        if (!res.ok) {
+          const errorText = await res.text();
+          alert("Erreur du serveur : " + errorText);
+          return;
         }
 
-        const result = await response.text();
-        alert("Merci ! Tes infos ont bien été enregistrées 😇");
-      } catch (error) {
-        console.error(error);
-        alert("Erreur lors de l'envoi. Vérifie ta connexion ou réessaye plus tard.");
+        const result = await res.text();
+        alert("Merci ! Ta réponse a été enregistrée.");
+        form.reset();
+      } catch (err) {
+        alert("Erreur lors de l'envoi.");
+        console.error(err);
       }
     });
   </script>
