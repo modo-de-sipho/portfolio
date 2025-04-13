@@ -1,55 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Questionnaire Client</title>
-    <script>
-        // Fonction pour envoyer les données via AJAX
-        async function sendForm(event) {
-            event.preventDefault(); // Empêche le rechargement de la page
-
-            // Récupération des données du formulaire
-            const formData = new FormData(document.getElementById('clientForm'));
-
-            try {
-                // Envoi des données au serveur via fetch
-                const response = await fetch('http://fnode1.astrast.host:7031/submit', {
-                    method: 'POST',
-                    body: formData
-                });
-
-                if (!response.ok) {
-                    throw new Error(`Erreur HTTP : ${response.status}`);
-                }
-
-                // Traitement de la réponse du serveur
-                const result = await response.text();
-                alert(result); // Affiche un message de confirmation
-            } catch (error) {
-                console.error('Erreur lors de l\'envoi des données :', error);
-                alert('Une erreur s\'est produite. Veuillez réessayer.');
-            }
-        }
-    </script>
+  <meta charset="UTF-8">
+  <title>Questionnaire ✍️</title>
 </head>
 <body>
-    <h1>Questionnaire Client</h1>
-    <form id="clientForm" onsubmit="sendForm(event)">
-        <label for="name">Nom:</label>
-        <input type="text" id="name" name="name" required><br><br>
+  <h1>Remplis ce petit formulaire 😄</h1>
+  <form id="questionnaire">
+    <label>Nom: <input type="text" name="nom" required></label><br><br>
+    <label>Email: <input type="email" name="email" required></label><br><br>
+    <label>Message: <textarea name="message" required></textarea></label><br><br>
+    <button type="submit">Envoyer 🚀</button>
+  </form>
 
-        <label for="surname">Prénom:</label>
-        <input type="text" id="surname" name="surname" required><br><br>
+  <script>
+    const form = document.getElementById('questionnaire');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-        <label for="budget">Budget:</label>
-        <input type="text" id="budget" name="budget" required><br><br>
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
 
-        <label for="description">Description du site:</label>
-        <textarea id="description" name="description" required></textarea><br><br>
+      try {
+        const res = await fetch('http://fnode1.astrast.host:7031/recevoir', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
 
-        <label for="phone">Numéro de téléphone:</label>
-        <input type="text" id="phone" name="phone" required><br><br>
-
-        <button type="submit">Envoyer</button>
-    </form>
+        const result = await res.text();
+        alert("Merci ! Réponse enregistrée 😇");
+      } catch (err) {
+        alert("Erreur 😢");
+        console.error(err);
+      }
+    });
+  </script>
 </body>
 </html>
