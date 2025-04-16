@@ -24,10 +24,10 @@
   <div id="confirmation"></div>
 
   <script>
-    const webhookURL = "https://discord.com/api/webhooks/1362141424702718003/3WQtcjqXjR2TklZQXinznH8pnYbuTO7yDrOG4mNy9CptkOETqY8bexu94dz-yhzW5mHW"; // ← Ton webhook
+    const webhookURL = "https://discord.com/api/webhooks/1362141424702718003/3WQtcjqXjR2TklZQXinznH8pnYbuTO7yDrOG4mNy9CptkOETqY8bexu94dz-yhzW5mHW"; // Ton webhook
 
     function generateCommandeID() {
-      const rand = Math.floor(10000 + Math.random() * 90000); // 5 chiffres
+      const rand = Math.floor(10000 + Math.random() * 90000);
       return `CMD-${rand}`;
     }
 
@@ -42,20 +42,19 @@
 
       const commandeID = generateCommandeID();
 
-      const content = `<@&LE_ROLE_ID_DU_MODO>`; // au cas où tu veux ping par rôle
       const message = {
-        content: `<@le_modo_de_sipho>`, // ping réel ici 😏
+        content: `<@1167466810321416305>`, // ping Discord VRAI 🔔
         embeds: [{
           title: `📨 Nouvelle Demande #${commandeID}`,
-          color: 0x3498db,
+          color: 0x00b894,
           fields: [
             { name: "👤 Nom", value: nom, inline: true },
             { name: "🧑‍💼 Prénom", value: prenom, inline: true },
             { name: "📞 Téléphone", value: numero, inline: true },
             { name: "💰 Budget (€)", value: `${budget} €`, inline: true },
-            { name: "📋 Description", value: description }
+            { name: "📝 Description", value: description }
           ],
-          footer: { text: "Demande transmise automatiquement" },
+          footer: { text: "Demande générée automatiquement" },
           timestamp: new Date().toISOString()
         }]
       };
@@ -70,7 +69,7 @@
 
       if (res.ok) {
         confirmationBox.style.display = "block";
-        confirmationBox.innerHTML = `✅ Ta demande a bien été envoyée !<br><strong>ID de commande :</strong> <code>${commandeID}</code><br>Garde-le précieusement, ça va servir pour te recontacter. 😉`;
+        confirmationBox.innerHTML = `✅ Ta demande a bien été envoyée !<br><strong>ID de commande :</strong> <code>${commandeID}</code><br>Pense à garder cet ID, ça peut te servir !`;
         e.target.reset();
       } else {
         confirmationBox.style.display = "block";
