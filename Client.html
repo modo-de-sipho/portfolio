@@ -1,90 +1,47 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Questionnaire</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-    #message {
-      margin-top: 20px;
-      font-weight: bold;
-      color: green;
-    }
-  </style>
+    <title>Formulaire de commande</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-  <h1>Donne-nous tes infos</h1>
-  <form id="questionnaire">
-    <label>
-      Nom:<br>
-      <input type="text" name="nom" placeholder="Ton nom" required>
-    </label>
-    <br><br>
-    <label>
-      Prénom:<br>
-      <input type="text" name="prenom" placeholder="Ton prénom" required>
-    </label>
-    <br><br>
-    <label>
-      Budget:<br>
-      <input type="number" step="0.01" name="budget" placeholder="Ton budget" required>
-    </label>
-    <br><br>
-    <label>
-      Description:<br>
-      <textarea name="description" placeholder="Décris ton projet" rows="4" required></textarea>
-    </label>
-    <br><br>
-    <label>
-      Email:<br>
-      <input type="email" name="email" placeholder="tonadressemail@" required>
-    </label>
-    <br><br>
-    <button type="submit">Envoyer</button>
-  </form>
+    <h1>Formulaire de commande</h1>
+    <form id="commandeForm">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
 
-  <div id="message"></div>
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required>
 
-  <script>
-    const form = document.getElementById('questionnaire');
-    const messageDiv = document.getElementById('message');
+        <label for="adresse">Adresse :</label>
+        <textarea id="adresse" name="adresse" required></textarea>
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+        <label for="description">Description :</label>
+        <textarea id="description" name="description" required></textarea>
 
-      // Extraction des données du formulaire
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
+        <label for="budget">Budget :</label>
+        <input type="number" id="budget" name="budget" required>
 
-      try {
-        // Remplace "fnode1.astrast.host" par le nom de domaine ou IP de ton serveur
-        const res = await fetch('http://fnode1.astrast.host/proxy', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
+        <label for="cote_serv">Côté service :</label>
+        <input type="number" id="cote_serv" name="cote_serv" required>
+
+        <button type="submit">Enregistrer la commande</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('commandeForm');
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(form);
+            try {
+                await axios.post('http://fnode1.astrast.host:7031/save_order', formData);
+                alert('Commande enregistrée avec succès !');
+                form.reset();
+            } catch (error) {
+                alert('Une erreur est survenue lors de l\'enregistrement de la commande.');
+                console.error(error);
+            }
         });
-
-        if (!res.ok) {
-          const errorText = await res.text();
-          messageDiv.textContent = "Erreur du serveur : " + errorText;
-          messageDiv.style.color = "red";
-          return;
-        }
-
-        const result = await res.json();
-        messageDiv.textContent = result.message || "Merci ! Ta réponse a été enregistrée.";
-        messageDiv.style.color = "green";
-        form.reset();
-      } catch (err) {
-        messageDiv.textContent = "Erreur lors de l'envoi.";
-        messageDiv.style.color = "red";
-        console.error(err);
-      }
-    });
-  </script>
+    </script>
 </body>
 </html>
