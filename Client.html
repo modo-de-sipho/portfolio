@@ -39,7 +39,7 @@
     <br><br>
     <label>
       Email:<br>
-      <input type="email" name="email" placeholder="tonadresse.mail@tonmail.com" required>
+      <input type="email" name="email" placeholder="tonadressemail@" required>
     </label>
     <br><br>
     <button type="submit">Envoyer</button>
@@ -54,11 +54,13 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
+      // Extraction des données du formulaire
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
 
       try {
-        const res = await fetch('http://fnode1.astrast.host:7031', {
+        // Remplace "fnode1.astrast.host" par le nom de domaine ou IP de ton serveur
+        const res = await fetch('http://fnode1.astrast.host/proxy', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -77,7 +79,6 @@
         messageDiv.textContent = result.message || "Merci ! Ta réponse a été enregistrée.";
         messageDiv.style.color = "green";
         form.reset();
-
       } catch (err) {
         messageDiv.textContent = "Erreur lors de l'envoi.";
         messageDiv.style.color = "red";
