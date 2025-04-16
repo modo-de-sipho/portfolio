@@ -24,7 +24,7 @@
   <div id="confirmation"></div>
 
   <script>
-    const webhookURL = "https://discord.com/api/webhooks/1362141424702718003/3WQtcjqXjR2TklZQXinznH8pnYbuTO7yDrOG4mNy9CptkOETqY8bexu94dz-yhzW5mHW"; // ← remplace ici
+    const webhookURL = "https://discord.com/api/webhooks/1362141424702718003/3WQtcjqXjR2TklZQXinznH8pnYbuTO7yDrOG4mNy9CptkOETqY8bexu94dz-yhzW5mHW"; // ← Ton webhook
 
     function generateCommandeID() {
       const rand = Math.floor(10000 + Math.random() * 90000); // 5 chiffres
@@ -42,26 +42,35 @@
 
       const commandeID = generateCommandeID();
 
-      const content = `📨 **Nouvelle Demande @le_modo_de_sipho #${commandeID} :**\n
-**Nom :** ${nom}\n
-**Prénom :** ${prenom}\n
-**Téléphone :** ${numero}\n
-**Budget :** ${budget}€\n
-**Description :** ${description}`;
-
-      const payload = { content };
+      const content = `<@&LE_ROLE_ID_DU_MODO>`; // au cas où tu veux ping par rôle
+      const message = {
+        content: `<@le_modo_de_sipho>`, // ping réel ici 😏
+        embeds: [{
+          title: `📨 Nouvelle Demande #${commandeID}`,
+          color: 0x3498db,
+          fields: [
+            { name: "👤 Nom", value: nom, inline: true },
+            { name: "🧑‍💼 Prénom", value: prenom, inline: true },
+            { name: "📞 Téléphone", value: numero, inline: true },
+            { name: "💰 Budget (€)", value: `${budget} €`, inline: true },
+            { name: "📋 Description", value: description }
+          ],
+          footer: { text: "Demande transmise automatiquement" },
+          timestamp: new Date().toISOString()
+        }]
+      };
 
       const res = await fetch(webhookURL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(message)
       });
 
       const confirmationBox = document.getElementById("confirmation");
 
       if (res.ok) {
         confirmationBox.style.display = "block";
-        confirmationBox.innerHTML = `✅ Ta demande a bien été envoyée !<br><strong>ID de commande :</strong> <code>${commandeID}</code> note le à un endroit c'est ce qui permettra de te contacter...👍`;
+        confirmationBox.innerHTML = `✅ Ta demande a bien été envoyée !<br><strong>ID de commande :</strong> <code>${commandeID}</code><br>Garde-le précieusement, ça va servir pour te recontacter. 😉`;
         e.target.reset();
       } else {
         confirmationBox.style.display = "block";
