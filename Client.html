@@ -7,6 +7,7 @@
     body { font-family: sans-serif; padding: 2rem; background: #f5f5f5; }
     form { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
     input, textarea, button { display: block; width: 100%; margin-bottom: 1rem; padding: 10px; font-size: 1rem; }
+    #confirmation { background: #d4edda; color: #155724; padding: 1rem; border-radius: 5px; display: none; margin-top: 1rem; }
   </style>
 </head>
 <body>
@@ -20,8 +21,15 @@
     <button type="submit">Envoyer la demande</button>
   </form>
 
+  <div id="confirmation"></div>
+
   <script>
-    const webhookURL = "https://discord.com/api/webhooks/1362141424702718003/3WQtcjqXjR2TklZQXinznH8pnYbuTO7yDrOG4mNy9CptkOETqY8bexu94dz-yhzW5mHW"; // ← change ici
+    const webhookURL = "https://discord.com/api/webhooks/1362141424702718003/3WQtcjqXjR2TklZQXinznH8pnYbuTO7yDrOG4mNy9CptkOETqY8bexu94dz-yhzW5mHW"; // ← remplace ici
+
+    function generateCommandeID() {
+      const rand = Math.floor(10000 + Math.random() * 90000); // 5 chiffres
+      return `CMD-${rand}`;
+    }
 
     document.getElementById('formulaire').addEventListener('submit', async function(e) {
       e.preventDefault();
@@ -32,30 +40,34 @@
       const budget = data.get('budget');
       const description = data.get('description');
 
-      const content = `📨 **Nouvelle Demande :**\n
+      const commandeID = generateCommandeID();
+
+      const content = `📨 **Nouvelle Demande #${commandeID} :**\n
 **Nom :** ${nom}\n
 **Prénom :** ${prenom}\n
 **Téléphone :** ${numero}\n
 **Budget :** ${budget}€\n
 **Description :** ${description}`;
 
-      const payload = {
-        content: content
-      };
+      const payload = { content };
 
       const res = await fetch(webhookURL, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
       });
 
+      const confirmationBox = document.getElementById("confirmation");
+
       if (res.ok) {
-        alert("✅ Demande envoyée à Discord !");
+        confirmationBox.style.display = "block";
+        confirmationBox.innerHTML = `✅ Ta demande a bien été envoyée !<br><strong>ID de commande :</strong> <code>${commandeID}</code>`;
         e.target.reset();
       } else {
-        alert("❌ Erreur lors de l'envoi !");
+        confirmationBox.style.display = "block";
+        confirmationBox.style.background = "#f8d7da";
+        confirmationBox.style.color = "#721c24";
+        confirmationBox.innerHTML = "❌ Une erreur est survenue. Essaie plus tard.";
       }
     });
   </script>
