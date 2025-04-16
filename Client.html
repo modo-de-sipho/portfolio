@@ -3,6 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Questionnaire</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #message {
+      margin-top: 20px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
 </head>
 <body>
   <h1>Donne-nous tes infos</h1>
@@ -28,24 +38,27 @@
     </label>
     <br><br>
     <label>
-      Numéro de téléphone:<br>
-      <input type="email" name="email" placeholder="tonadressemail@" pattern="[0-9]{10}" required>
+      Email:<br>
+      <input type="email" name="email" placeholder="tonadresse.mail@tonmail.com" required>
     </label>
     <br><br>
     <button type="submit">Envoyer</button>
   </form>
 
+  <div id="message"></div>
+
   <script>
     const form = document.getElementById('questionnaire');
+    const messageDiv = document.getElementById('message');
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Extraction des données du formulaire
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
-      
+
       try {
-        const res = await fetch('http://fnode1.astrast.host:7031/recevoir', {
+        const res = await fetch('fnode1.astrast.host:7031', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -55,15 +68,19 @@
 
         if (!res.ok) {
           const errorText = await res.text();
-          alert("Erreur du serveur : " + errorText);
+          messageDiv.textContent = "Erreur du serveur : " + errorText;
+          messageDiv.style.color = "red";
           return;
         }
 
-        const result = await res.text();
-        alert("Merci ! Ta réponse a été enregistrée.");
+        const result = await res.json();
+        messageDiv.textContent = result.message || "Merci ! Ta réponse a été enregistrée.";
+        messageDiv.style.color = "green";
         form.reset();
+
       } catch (err) {
-        alert("Erreur lors de l'envoi.");
+        messageDiv.textContent = "Erreur lors de l'envoi.";
+        messageDiv.style.color = "red";
         console.error(err);
       }
     });
