@@ -1,47 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Formulaire de commande</title>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Demande Rapide</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; background: #f5f5f5; }
+    form { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+    input, textarea, button { display: block; width: 100%; margin-bottom: 1rem; padding: 10px; font-size: 1rem; }
+  </style>
 </head>
 <body>
-    <h1>Formulaire de commande</h1>
-    <form id="commandeForm">
-        <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="nom" required>
+  <h1>Fais ta demande 👇</h1>
+  <form id="formulaire">
+    <input type="text" name="nom" placeholder="Nom" required>
+    <input type="text" name="prenom" placeholder="Prénom" required>
+    <input type="tel" name="numero" placeholder="Numéro de téléphone" required>
+    <input type="number" name="budget" placeholder="Budget (€)" required>
+    <textarea name="description" placeholder="Décris ton besoin" required></textarea>
+    <button type="submit">Envoyer la demande</button>
+  </form>
 
-        <label for="prenom">Prénom :</label>
-        <input type="text" id="prenom" name="prenom" required>
+  <script>
+    const webhookURL = "https://discord.com/api/webhooks/1362141424702718003/3WQtcjqXjR2TklZQXinznH8pnYbuTO7yDrOG4mNy9CptkOETqY8bexu94dz-yhzW5mHW"; // ← change ici
 
-        <label for="adresse">Adresse :</label>
-        <textarea id="adresse" name="adresse" required></textarea>
+    document.getElementById('formulaire').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = new FormData(e.target);
+      const nom = data.get('nom');
+      const prenom = data.get('prenom');
+      const numero = data.get('numero');
+      const budget = data.get('budget');
+      const description = data.get('description');
 
-        <label for="description">Description :</label>
-        <textarea id="description" name="description" required></textarea>
+      const content = `📨 **Nouvelle Demande :**\n
+**Nom :** ${nom}\n
+**Prénom :** ${prenom}\n
+**Téléphone :** ${numero}\n
+**Budget :** ${budget}€\n
+**Description :** ${description}`;
 
-        <label for="budget">Budget :</label>
-        <input type="number" id="budget" name="budget" required>
+      const payload = {
+        content: content
+      };
 
-        <label for="cote_serv">Côté service :</label>
-        <input type="number" id="cote_serv" name="cote_serv" required>
+      const res = await fetch(webhookURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
 
-        <button type="submit">Enregistrer la commande</button>
-    </form>
-
-    <script>
-        const form = document.getElementById('commandeForm');
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            const formData = new FormData(form);
-            try {
-                await axios.post('http://fnode1.astrast.host:7031/save_order', formData);
-                alert('Commande enregistrée avec succès !');
-                form.reset();
-            } catch (error) {
-                alert('Une erreur est survenue lors de l\'enregistrement de la commande.');
-                console.error(error);
-            }
-        });
-    </script>
+      if (res.ok) {
+        alert("✅ Demande envoyée à Discord !");
+        e.target.reset();
+      } else {
+        alert("❌ Erreur lors de l'envoi !");
+      }
+    });
+  </script>
 </body>
 </html>
