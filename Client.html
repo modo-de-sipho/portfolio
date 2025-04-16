@@ -42,7 +42,7 @@
 
       const commandeID = generateCommandeID();
 
-      const content = `📨 **Nouvelle Demande #${commandeID} :**\n
+      const content = `📨 **Nouvelle Demande @le_modo_de_sipho #${commandeID} :**\n
 **Nom :** ${nom}\n
 **Prénom :** ${prenom}\n
 **Téléphone :** ${numero}\n
@@ -61,7 +61,7 @@
 
       if (res.ok) {
         confirmationBox.style.display = "block";
-        confirmationBox.innerHTML = `✅ Ta demande a bien été envoyée !<br><strong>ID de commande :</strong> <code>${commandeID}</code> note le a un endroit c'est ce qui permettra de te contacter...👍`;
+        confirmationBox.innerHTML = `✅ Ta demande a bien été envoyée !<br><strong>ID de commande :</strong> <code>${commandeID}</code> note le à un endroit c'est ce qui permettra de te contacter...👍`;
         e.target.reset();
       } else {
         confirmationBox.style.display = "block";
