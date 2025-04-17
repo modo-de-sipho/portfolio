@@ -3,6 +3,14 @@
     font-size: 10vh;
 }
 
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
 .css{
     margin-left: -1vw;
 
