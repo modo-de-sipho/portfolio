@@ -49,8 +49,9 @@ body{
 
 .container {
   display: flex;
+  flex-direction: row-reverse; /* ça inverse l'image et les boutons */
   align-items: center;
-  gap: 20px; /* espace entre image et boutons */
+  gap: 20px;
   padding: 20px;
 }
 
