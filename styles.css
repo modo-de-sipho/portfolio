@@ -4,12 +4,7 @@
 }
 
 .buttons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    align-items: right;
+  text-align: right;
 }
 
 .css{
@@ -57,7 +52,5 @@ body{
 }
 
 .profile-pic {
-  width: 150px;
-  height: auto;
-  border-radius: 10px;
+
 }
