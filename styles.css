@@ -46,3 +46,16 @@ body{
     background-attachment: fixed;
     background-size: 100% 100%;
 }
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* espace entre image et boutons */
+  padding: 20px;
+}
+
+.profile-pic {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+}
