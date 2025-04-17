@@ -4,7 +4,8 @@
 }
 
 .buttons {
-  text-align: right;
+    text-align: right;
+    margin-left: auto;
 }
 
 .css{
