@@ -4,9 +4,12 @@
 }
 
 .buttons {
-    text-align: right;
-    margin-left: auto;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px; 
+    margin-right: 2vw; 
 }
+
 
 .css{
     margin-left: -1vw;
