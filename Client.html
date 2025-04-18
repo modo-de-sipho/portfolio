@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>commander un site web</title>
+  <title>passer commande</title>
   <style>
     body { font-family: sans-serif; padding: 2rem; background: #f5f5f5; }
     form { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
@@ -11,7 +11,7 @@
   </style>
 </head>
 <body>
-  <h1>Fais ta commande👇</h1>
+  <h1>Passe ta commande👇</h1>
   <form id="formulaire">
     <input type="text" name="nom" placeholder="Nom" required>
     <input type="text" name="prenom" placeholder="Prénom" required>
@@ -43,7 +43,7 @@
       const commandeID = generateCommandeID();
 
       const message = {
-        content: `<@1167466810321416305>`, // ping Discord VRAI 🔔
+        content: `<@1167466810321416305>`,
         embeds: [{
           title: `📨 Nouvelle Demande #${commandeID}`,
           color: 0x00b894,
