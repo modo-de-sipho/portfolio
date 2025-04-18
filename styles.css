@@ -6,6 +6,7 @@
 .btn-competences{
     border-radius: 30px;
     background-color: #cccc00;
+    height: 10vh;
 }
 
 .buttons {
@@ -40,8 +41,8 @@
 }
 
 .ico{
-    max-height: 200px ;
-    max-width: 100px;
+    max-height: 70vh ;
+    max-width: 10vw;
     display: block;
 }
 
