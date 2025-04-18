@@ -1,6 +1,11 @@
-.txt-infos{
+.txt-infos {
     color: #0004ff;
     font-size: 10vh;
+}
+
+.btn-competences {
+    border-radius: 30px;
+    backgroud-color: #cccc00;
 }
 
 .buttons {
