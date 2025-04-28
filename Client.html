@@ -14,11 +14,10 @@
 <body>
   <h1>Passe ta commande👇</h1>
   <form id="formulaire">
-    <input type="text" name="nom" placeholder="Nom" required>
-    <input type="text" name="prenom" placeholder="Prénom" required>
-    <input type="tel" name="numero" placeholder="Numéro de téléphone" required>
+    <input type="text" name="pseudo" placeholder="pseudo discord">
+    <input type="text" name="mail" placeholder="mail" requierd>
     <input type="number" name="budget" placeholder="Budget (€)" required>
-    <textarea name="description" placeholder="Décris ton site" required></textarea>
+    <textarea name="description" placeholder="Décris ton site" ></textarea>
     <button type="submit">Envoyer la commande</button>
   </form>
 
@@ -35,9 +34,8 @@
     document.getElementById('formulaire').addEventListener('submit', async function(e) {
       e.preventDefault();
       const data = new FormData(e.target);
-      const nom = data.get('nom');
-      const prenom = data.get('prenom');
-      const numero = data.get('numero');
+      const prenom = data.get('pseudo');
+      const numero = data.get('mail');
       const budget = data.get('budget');
       const description = data.get('description');
 
@@ -49,9 +47,8 @@
           title: `📨 Nouvelle Demande #${commandeID}`,
           color: 0x00b894,
           fields: [
-            { name: "👤 Nom", value: nom, inline: true },
-            { name: "🧑‍💼 Prénom", value: prenom, inline: true },
-            { name: "📞 Téléphone", value: numero, inline: true },
+            { name: "👤 pseudo", value: pseudo, inline: true },
+            { name: "🧑‍💼 mail", value: mail, inline: true },
             { name: "💰 Budget (€)", value: `${budget} €`, inline: true },
             { name: "📝 Description", value: description }
           ],
