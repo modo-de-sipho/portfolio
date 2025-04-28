@@ -34,8 +34,8 @@
     document.getElementById('formulaire').addEventListener('submit', async function(e) {
       e.preventDefault();
       const data = new FormData(e.target);
-      const prenom = data.get('pseudo');
-      const numero = data.get('mail');
+      const pseudo = data.get('pseudo');
+      const nmail = data.get('mail');
       const budget = data.get('budget');
       const description = data.get('description');
 
