@@ -12,7 +12,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
 <style>
-:where([class^="ri-"])::before { content: "\f3c2"; }
+.space{
+height: 50px;
+}
+
+  :where([class^="ri-"])::before { content: "\f3c2"; }
 body {
 font-family: 'Inter', sans-serif;
 scroll-behavior: smooth;
@@ -128,7 +132,6 @@ transform: translateX(20px);
 </style>
 </head>
 <body class="bg-gray-50">
-<!-- Navigation -->
 <nav class="bg-white shadow-sm fixed w-full z-50">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex justify-between h-16">
@@ -149,7 +152,6 @@ transform: translateX(20px);
 </div>
 </div>
 </div>
-<!-- Mobile menu -->
 <div class="md:hidden hidden bg-white shadow-lg absolute w-full" id="mobile-menu">
 <div class="px-2 pt-2 pb-3 space-y-1">
 <a href="#accueil" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Accueil</a>
@@ -160,7 +162,6 @@ transform: translateX(20px);
 </div>
 </div>
 </nav>
-<!-- Hero Section -->
 <section id="accueil" class="pt-16 w-full" style="background-image: url('https://readdy.ai/api/search-image?query=Professional%20modern%20web%20development%20workspace%20with%20blue%20accents%2C%20clean%20desk%20with%20computer%20showing%20code%2C%20soft%20lighting%2C%20minimalist%20style%2C%20high-quality%20professional%20photography%2C%20shallow%20depth%20of%20field%2C%20no%20people%2C%20perfect%20for%20a%20developer%20portfolio%20hero%20section%20with%20space%20for%20text%20on%20the%20left%20side&width=1920&height=1080&seq=1&orientation=landscape'); background-size: cover; background-position: center right;">
 <div class="w-full min-h-[600px] flex items-center">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -175,31 +176,28 @@ transform: translateX(20px);
 </div>
 </div>
 </section>
-<!-- Stats Section -->
 <section class="py-16 bg-white">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 <div class="bg-gray-50 p-8 rounded-lg text-center shadow-sm">
-<div class="text-4xl font-bold text-primary mb-2">5+</div>
+<div class="text-4xl font-bold text-primary mb-2">2</div>
 <div class="text-gray-700">Années d'expérience</div>
 </div>
 <div class="bg-gray-50 p-8 rounded-lg text-center shadow-sm">
-<div class="text-4xl font-bold text-primary mb-2">78</div>
+<div class="text-4xl font-bold text-primary mb-2">12</div>
 <div class="text-gray-700">Projets réalisés</div>
 </div>
 <div class="bg-gray-50 p-8 rounded-lg text-center shadow-sm">
-<div class="text-4xl font-bold text-primary mb-2">92%</div>
+<div class="text-4xl font-bold text-primary mb-2">90%</div>
 <div class="text-gray-700">Clients satisfaits</div>
 </div>
 </div>
 </div>
 </section>
-<!-- Skills Section -->
 <section id="competences" class="py-16 bg-gray-50">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Mes Compétences</h2>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<!-- Frontend Skills -->
 <div class="bg-white p-8 rounded-lg shadow-sm">
 <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-6">
 <i class="ri-layout-line ri-lg text-primary"></i>
@@ -208,25 +206,7 @@ transform: translateX(20px);
 <div class="space-y-6">
 <div>
 <div class="flex justify-between mb-2">
-<span class="text-gray-700">HTML/CSS</span>
-<span class="text-gray-500">95%</span>
-</div>
-<div class="skill-bar">
-<div class="skill-progress" style="width: 95%"></div>
-</div>
-</div>
-<div>
-<div class="flex justify-between mb-2">
-<span class="text-gray-700">JavaScript</span>
-<span class="text-gray-500">90%</span>
-</div>
-<div class="skill-bar">
-<div class="skill-progress" style="width: 90%"></div>
-</div>
-</div>
-<div>
-<div class="flex justify-between mb-2">
-<span class="text-gray-700">React</span>
+<span class="text-gray-700">HTML</span>
 <span class="text-gray-500">85%</span>
 </div>
 <div class="skill-bar">
@@ -235,16 +215,26 @@ transform: translateX(20px);
 </div>
 <div>
 <div class="flex justify-between mb-2">
-<span class="text-gray-700">Vue.js</span>
-<span class="text-gray-500">80%</span>
+<span class="text-gray-700">JavaScript</span>
+<span class="text-gray-500">40%</span>
 </div>
 <div class="skill-bar">
-<div class="skill-progress" style="width: 80%"></div>
+<div class="skill-progress" style="width: 40%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700">CSS</span>
+<span class="text-gray-500">95%</span>
+</div>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 95%"></div>
+</div>
+</div>
+<div>
 </div>
 </div>
 </div>
-</div>
-<!-- Backend Skills -->
 <div class="bg-white p-8 rounded-lg shadow-sm">
 <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-6">
 <i class="ri-server-line ri-lg text-primary"></i>
@@ -253,35 +243,8 @@ transform: translateX(20px);
 <div class="space-y-6">
 <div>
 <div class="flex justify-between mb-2">
-<span class="text-gray-700">Node.js</span>
-<span class="text-gray-500">85%</span>
-</div>
-<div class="skill-bar">
-<div class="skill-progress" style="width: 85%"></div>
-</div>
-</div>
-<div>
-<div class="flex justify-between mb-2">
-<span class="text-gray-700">Express</span>
-<span class="text-gray-500">80%</span>
-</div>
-<div class="skill-bar">
-<div class="skill-progress" style="width: 80%"></div>
-</div>
-</div>
-<div>
-<div class="flex justify-between mb-2">
-<span class="text-gray-700">MongoDB</span>
-<span class="text-gray-500">75%</span>
-</div>
-<div class="skill-bar">
-<div class="skill-progress" style="width: 75%"></div>
-</div>
-</div>
-<div>
-<div class="flex justify-between mb-2">
 <span class="text-gray-700">SQL</span>
-<span class="text-gray-500">85%</span>
+<span class="text-gray-500">45%</span>
 </div>
 <div class="skill-bar">
 <div class="skill-progress" style="width: 85%"></div>
@@ -289,7 +252,6 @@ transform: translateX(20px);
 </div>
 </div>
 </div>
-<!-- Python Skills -->
 <div class="bg-white p-8 rounded-lg shadow-sm">
 <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-6">
 <i class="ri-code-s-slash-line ri-lg text-primary"></i>
@@ -298,25 +260,7 @@ transform: translateX(20px);
 <div class="space-y-6">
 <div>
 <div class="flex justify-between mb-2">
-<span class="text-gray-700">Python Core</span>
-<span class="text-gray-500">95%</span>
-</div>
-<div class="skill-bar">
-<div class="skill-progress" style="width: 95%"></div>
-</div>
-</div>
-<div>
-<div class="flex justify-between mb-2">
-<span class="text-gray-700">Django</span>
-<span class="text-gray-500">90%</span>
-</div>
-<div class="skill-bar">
-<div class="skill-progress" style="width: 90%"></div>
-</div>
-</div>
-<div>
-<div class="flex justify-between mb-2">
-<span class="text-gray-700">Flask</span>
+<span class="text-gray-700">Python</span>
 <span class="text-gray-500">85%</span>
 </div>
 <div class="skill-bar">
@@ -325,76 +269,21 @@ transform: translateX(20px);
 </div>
 <div>
 <div class="flex justify-between mb-2">
-<span class="text-gray-700">Data Science</span>
-<span class="text-gray-500">80%</span>
+<span class="text-gray-700">Flask</span>
+<span class="text-gray-500">90%</span>
 </div>
 <div class="skill-bar">
-<div class="skill-progress" style="width: 80%"></div>
+<div class="skill-progress" style="width: 90%"></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<!-- Certifications -->
-<div class="mt-16">
-<h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">Certifications & Formations</h3>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-<div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 flex flex-col items-center">
-<div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-<i class="ri-award-line ri-lg text-primary"></i>
-</div>
-<h4 class="text-lg font-semibold text-gray-900 mb-2">Full Stack Developer</h4>
-<p class="text-gray-600 text-center">OpenClassrooms</p>
-</div>
-<div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 flex flex-col items-center">
-<div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-<i class="ri-award-line ri-lg text-primary"></i>
-</div>
-<h4 class="text-lg font-semibold text-gray-900 mb-2">Python Professional</h4>
-<p class="text-gray-600 text-center">Coursera</p>
-</div>
-<div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 flex flex-col items-center">
-<div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-<i class="ri-award-line ri-lg text-primary"></i>
-</div>
-<h4 class="text-lg font-semibold text-gray-900 mb-2">React Specialist</h4>
-<p class="text-gray-600 text-center">Udemy</p>
-</div>
-<div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 flex flex-col items-center">
-<div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-<i class="ri-award-line ri-lg text-primary"></i>
-</div>
-<h4 class="text-lg font-semibold text-gray-900 mb-2">Data Science</h4>
-<p class="text-gray-600 text-center">DataCamp</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Projects Section -->
+<div class="space"></div>
 <section id="projets" class="py-16 bg-white">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Projets Récents</h2>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Project 1 -->
-<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2">
-<div class="h-48 overflow-hidden">
-<img src="https://readdy.ai/api/search-image?query=Modern%20e-commerce%20website%20interface%20with%20clean%20design%2C%20showing%20product%20listings%2C%20shopping%20cart%20functionality%2C%20responsive%20layout%2C%20professional%20web%20design%20showcase&width=600&height=400&seq=2&orientation=landscape" alt="E-commerce Platform" class="w-full h-full object-cover object-top">
-</div>
-<div class="p-6">
-<div class="flex justify-between items-center mb-3">
-<span class="bg-blue-100 text-primary text-xs px-3 py-1 rounded-full">Web</span>
-<span class="text-gray-500 text-sm">Avril 2025</span>
-</div>
-<h3 class="text-xl font-semibold text-gray-900 mb-2">Plateforme E-commerce</h3>
-<p class="text-gray-600 mb-4">Site e-commerce complet avec paiement en ligne, gestion des stocks et interface d'administration.</p>
-<div class="flex flex-wrap gap-2">
-<span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">React</span>
-<span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">Node.js</span>
-<span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">MongoDB</span>
-</div>
-</div>
-</div>
 <!-- Project 2 -->
 <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2">
 <div class="h-48 overflow-hidden">
@@ -405,88 +294,47 @@ transform: translateX(20px);
 <span class="bg-blue-100 text-primary text-xs px-3 py-1 rounded-full">Python</span>
 <span class="text-gray-500 text-sm">Mars 2025</span>
 </div>
-<h3 class="text-xl font-semibold text-gray-900 mb-2">Dashboard Analytics</h3>
-<p class="text-gray-600 mb-4">Application d'analyse de données avec visualisations interactives et rapports automatisés.</p>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">panel d'analyse</h3>
+<p class="text-gray-600 mb-4">Application </p>
 <div class="flex flex-wrap gap-2">
 <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">Python</span>
-<span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">Django</span>
-<span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">D3.js</span>
 </div>
 </div>
 </div>
 <!-- Project 3 -->
 <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2">
 <div class="h-48 overflow-hidden">
-<img src="https://readdy.ai/api/search-image?query=Mobile%20app%20interface%20for%20fitness%20tracking%2C%20showing%20workout%20plans%2C%20progress%20charts%2C%20clean%20mobile%20UI%20design%2C%20fitness%20application%20screens%20on%20smartphone&width=600&height=400&seq=4&orientation=landscape" alt="Application Mobile Fitness" class="w-full h-full object-cover object-top">
+<img src="https://logo-marque.com/wp-content/uploads/2020/12/Discord-Embleme.jpg" alt="bot discord" class="w-full h-full object-cover object-top">
 </div>
 <div class="p-6">
 <div class="flex justify-between items-center mb-3">
-<span class="bg-blue-100 text-primary text-xs px-3 py-1 rounded-full">Mobile</span>
+<span class="bg-blue-100 text-primary text-xs px-3 py-1 rounded-full">discord</span>
 <span class="text-gray-500 text-sm">Février 2025</span>
 </div>
-<h3 class="text-xl font-semibold text-gray-900 mb-2">Application Fitness</h3>
-<p class="text-gray-600 mb-4">Application mobile de suivi d'entraînement avec plans personnalisés et analyses de progression.</p>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">bot discord</h3>
+<p class="text-gray-600 mb-4">bot qui peut creer des teams avec des channel privé</p>
 <div class="flex flex-wrap gap-2">
-<span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">React Native</span>
-<span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">Firebase</span>
-<span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">Redux</span>
+<span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">discord</span>
+<span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">python</span> 
 </div>
 </div>
 </div>
 <!-- Project 4 -->
 <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2">
 <div class="h-48 overflow-hidden">
-<img src="https://readdy.ai/api/search-image?query=AI%20chatbot%20interface%20with%20conversation%20bubbles%2C%20natural%20language%20processing%20visualization%2C%20modern%20web%20application%20design%2C%20customer%20service%20automation%20tool&width=600&height=400&seq=5&orientation=landscape" alt="Chatbot IA" class="w-full h-full object-cover object-top">
+<img src="data:image/jpeg;base64,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" alt="gameIA" class="w-full h-full object-cover object-top">
 </div>
 <div class="p-6">
 <div class="flex justify-between items-center mb-3">
 <span class="bg-blue-100 text-primary text-xs px-3 py-1 rounded-full">IA</span>
 <span class="text-gray-500 text-sm">Janvier 2025</span>
 </div>
-<h3 class="text-xl font-semibold text-gray-900 mb-2">Chatbot Intelligent</h3>
-<p class="text-gray-600 mb-4">Chatbot basé sur l'IA pour le service client avec intégration multi-plateforme.</p>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">gameia</h3>
+<p class="text-gray-600 mb-4">ia basée sur l'auto apprentissage  pour calculer les trajectoire de tir</p>
 <div class="flex flex-wrap gap-2">
 <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">Python</span>
 <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">TensorFlow</span>
-<span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">Flask</span>
 </div>
-</div>
-</div>
-<!-- Project 5 -->
-<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2">
-<div class="h-48 overflow-hidden">
-<img src="https://readdy.ai/api/search-image?query=Real%20estate%20property%20management%20system%20interface%20showing%20property%20listings%2C%20tenant%20management%2C%20payment%20tracking%2C%20professional%20web%20application%20design&width=600&height=400&seq=6&orientation=landscape" alt="Système Immobilier" class="w-full h-full object-cover object-top">
-</div>
-<div class="p-6">
-<div class="flex justify-between items-center mb-3">
-<span class="bg-blue-100 text-primary text-xs px-3 py-1 rounded-full">Web</span>
-<span class="text-gray-500 text-sm">Décembre 2024</span>
-</div>
-<h3 class="text-xl font-semibold text-gray-900 mb-2">Système Immobilier</h3>
-<p class="text-gray-600 mb-4">Plateforme de gestion immobilière avec recherche avancée et système de réservation.</p>
-<div class="flex flex-wrap gap-2">
-<span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">Vue.js</span>
-<span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">Express</span>
-<span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">PostgreSQL</span>
-</div>
-</div>
-</div>
-<!-- Project 6 -->
-<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2">
-<div class="h-48 overflow-hidden">
-<img src="https://readdy.ai/api/search-image?query=Learning%20management%20system%20interface%20showing%20course%20catalog%2C%20student%20progress%20tracking%2C%20online%20education%20platform%2C%20professional%20web%20application%20design&width=600&height=400&seq=7&orientation=landscape" alt="Plateforme E-learning" class="w-full h-full object-cover object-top">
-</div>
-<div class="p-6">
-<div class="flex justify-between items-center mb-3">
-<span class="bg-blue-100 text-primary text-xs px-3 py-1 rounded-full">Education</span>
-<span class="text-gray-500 text-sm">Novembre 2024</span>
-</div>
-<h3 class="text-xl font-semibold text-gray-900 mb-2">Plateforme E-learning</h3>
-<p class="text-gray-600 mb-4">Système de gestion de cours en ligne avec contenu interactif et suivi des progrès.</p>
-<div class="flex flex-wrap gap-2">
-<span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">React</span>
-<span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">Django</span>
-<span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">AWS</span>
 </div>
 </div>
 </div>
@@ -553,16 +401,16 @@ Voir tous les projets
 <label class="block text-sm font-medium text-gray-700 mb-2">Budget estimé</label>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 <div class="flex items-center">
-<input type="radio" id="budget-1" name="budget" value="1000-3000" class="custom-radio">
-<label for="budget-1" class="ml-2 text-sm text-gray-700">1 000 € - 3 000 €</label>
+<input type="radio" id="budget-1" name="budget" value="10-30" class="custom-radio">
+<label for="budget-1" class="ml-2 text-sm text-gray-700">10 € - 30 €</label>
 </div>
 <div class="flex items-center">
-<input type="radio" id="budget-2" name="budget" value="3000-7000" class="custom-radio">
-<label for="budget-2" class="ml-2 text-sm text-gray-700">3 000 € - 7 000 €</label>
+<input type="radio" id="budget-2" name="budget" value="30-50" class="custom-radio">
+<label for="budget-2" class="ml-2 text-sm text-gray-700">30 € - 50 €</label>
 </div>
 <div class="flex items-center">
-<input type="radio" id="budget-3" name="budget" value="7000+" class="custom-radio">
-<label for="budget-3" class="ml-2 text-sm text-gray-700">7 000 € +</label>
+<input type="radio" id="budget-3" name="budget" value="50+" class="custom-radio">
+<label for="budget-3" class="ml-2 text-sm text-gray-700">50+</label>
 </div>
 </div>
 </div>
@@ -589,28 +437,28 @@ Voir tous les projets
 <h4 class="font-medium text-gray-900">Site vitrine</h4>
 <p class="text-sm text-gray-600">5-7 pages, responsive</p>
 </div>
-<span class="font-medium text-gray-900">1 500 € - 3 000 €</span>
+<span class="font-medium text-gray-900">15 € - 30 €</span>
 </div>
 <div class="flex justify-between items-center pb-3 border-b border-gray-100">
 <div>
 <h4 class="font-medium text-gray-900">E-commerce</h4>
 <p class="text-sm text-gray-600">Jusqu'à 100 produits</p>
 </div>
-<span class="font-medium text-gray-900">3 000 € - 7 000 €</span>
+<span class="font-medium text-gray-900">30€ - 50 €</span>
 </div>
 <div class="flex justify-between items-center pb-3 border-b border-gray-100">
 <div>
 <h4 class="font-medium text-gray-900">Application web</h4>
 <p class="text-sm text-gray-600">Fonctionnalités personnalisées</p>
 </div>
-<span class="font-medium text-gray-900">4 000 € - 10 000 €</span>
+<span class="font-medium text-gray-900">4€ - 100 €</span>
 </div>
 <div class="flex justify-between items-center pb-3 border-b border-gray-100">
 <div>
 <h4 class="font-medium text-gray-900">Application Python</h4>
 <p class="text-sm text-gray-600">Automatisation, traitement de données</p>
 </div>
-<span class="font-medium text-gray-900">2 500 € - 6 000 €</span>
+<span class="font-medium text-gray-900">25 € - 60 €</span>
 </div>
 <div class="flex justify-between items-center">
 <div>
@@ -634,7 +482,7 @@ Voir tous les projets
 </div>
 <div>
 <h4 class="font-medium text-gray-900 mb-2">Proposez-vous un support après-vente ?</h4>
-<p class="text-gray-600">Oui, tous les projets incluent une période de support de 3 mois. Des contrats de maintenance sont également disponibles pour un suivi à long terme.</p>
+<p class="text-gray-600">Non. MAIS Des contrats de maintenance sont également disponibles pour un suivi à long terme.</p>
 </div>
 </div>
 </div>
@@ -664,7 +512,6 @@ Voir tous les projets
 </div>
 <div>
 <h4 class="font-medium text-gray-900">Sophie Dubois</h4>
-<p class="text-sm text-gray-600">Directrice, Mode Élégance</p>
 </div>
 </div>
 </div>
@@ -685,7 +532,6 @@ Voir tous les projets
 </div>
 <div>
 <h4 class="font-medium text-gray-900">Thomas Leroy</h4>
-<p class="text-sm text-gray-600">Analyste, DataVision</p>
 </div>
 </div>
 </div>
@@ -706,7 +552,6 @@ Voir tous les projets
 </div>
 <div>
 <h4 class="font-medium text-gray-900">Marie Lefèvre</h4>
-<p class="text-sm text-gray-600">Gérante, Café Parisien</p>
 </div>
 </div>
 </div>
@@ -754,7 +599,7 @@ Voir tous les projets
 </div>
 <div>
 <h4 class="font-medium text-gray-900 mb-1">Email</h4>
-<a href="mailto:contact@monportfolio.fr" class="text-primary hover:underline">contact@monportfolio.fr</a>
+<a href="mailto:contact@monportfolio.fr" class="text-primary hover:underline">mododesipho@gmail.com</a>
 </div>
 </div>
 <div class="flex items-start">
@@ -763,34 +608,21 @@ Voir tous les projets
 </div>
 <div>
 <h4 class="font-medium text-gray-900 mb-1">Téléphone</h4>
-<a href="tel:+33612345678" class="text-gray-700 hover:text-primary">+33 6 12 34 56 78</a>
+<a href="tel:+33612345678" class="text-gray-700 hover:text-primary">+33 7 71 82 94 32</a>
 </div>
-</div>
-<div class="flex items-start">
-<div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4 mt-1">
-<i class="ri-map-pin-line text-primary"></i>
-</div>
-<div>
-<h4 class="font-medium text-gray-900 mb-1">Localisation</h4>
-<p class="text-gray-700">Paris, France</p>
 </div>
 </div>
 </div>
 <div class="mt-8">
 <h4 class="font-medium text-gray-900 mb-4">Suivez-moi</h4>
 <div class="flex space-x-4">
-<a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
-<i class="ri-linkedin-fill"></i>
+<a href="https://discord.com/users/mode_de_sipho" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
+<i class="ri-discord-fill"></i>
 </a>
-<a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
+<a href="https://github.com/modo-de-sipho" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
 <i class="ri-github-fill"></i>
 </a>
-<a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
-<i class="ri-twitter-fill"></i>
-</a>
-<a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
-<i class="ri-instagram-fill"></i>
-</a>
+
 </div>
 </div>
 </div>
