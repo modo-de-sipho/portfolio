@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio Développeur Web & Python | Modo De Sipho</title>
+<title>Portfolio Développeur Web & Python</title>
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <script>tailwind.config={theme:{extend:{colors:{primary:'#3B82F6',secondary:'#64748B'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,6 +11,121 @@
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+scroll-behavior: smooth;
+}
+.skill-bar {
+height: 8px;
+border-radius: 4px;
+background-color: #e5e7eb;
+overflow: hidden;
+}
+.skill-progress {
+height: 100%;
+border-radius: 4px;
+background-color: #3B82F6;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+input[type="number"] {
+-moz-appearance: textfield;
+}
+.custom-checkbox {
+appearance: none;
+-webkit-appearance: none;
+width: 18px;
+height: 18px;
+border: 2px solid #d1d5db;
+border-radius: 4px;
+outline: none;
+cursor: pointer;
+position: relative;
+}
+.custom-checkbox:checked {
+background-color: #3B82F6;
+border-color: #3B82F6;
+}
+.custom-checkbox:checked::after {
+content: '';
+position: absolute;
+left: 5px;
+top: 2px;
+width: 6px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-radio {
+appearance: none;
+-webkit-appearance: none;
+width: 18px;
+height: 18px;
+border: 2px solid #d1d5db;
+border-radius: 50%;
+outline: none;
+cursor: pointer;
+position: relative;
+}
+.custom-radio:checked {
+border-color: #3B82F6;
+}
+.custom-radio:checked::after {
+content: '';
+position: absolute;
+left: 3px;
+top: 3px;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background-color: #3B82F6;
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 44px;
+height: 24px;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #e5e7eb;
+transition: .4s;
+border-radius: 24px;
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 18px;
+width: 18px;
+left: 3px;
+bottom: 3px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #3B82F6;
+}
+input:checked + .slider:before {
+transform: translateX(20px);
+}
+</style>
 </head>
 <body class="bg-gray-50">
 <!-- Navigation -->
@@ -138,11 +253,41 @@
 <div class="space-y-6">
 <div>
 <div class="flex justify-between mb-2">
-<span class="text-gray-700">js</span>
-<span class="text-gray-500">25%</span>
+<span class="text-gray-700">Node.js</span>
+<span class="text-gray-500">85%</span>
 </div>
 <div class="skill-bar">
 <div class="skill-progress" style="width: 85%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700">Express</span>
+<span class="text-gray-500">80%</span>
+</div>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 80%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700">MongoDB</span>
+<span class="text-gray-500">75%</span>
+</div>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 75%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700">SQL</span>
+<span class="text-gray-500">85%</span>
+</div>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 85%"></div>
+</div>
+</div>
+</div>
 </div>
 <!-- Python Skills -->
 <div class="bg-white p-8 rounded-lg shadow-sm">
@@ -153,7 +298,7 @@
 <div class="space-y-6">
 <div>
 <div class="flex justify-between mb-2">
-<span class="text-gray-700">Python</span>
+<span class="text-gray-700">Python Core</span>
 <span class="text-gray-500">95%</span>
 </div>
 <div class="skill-bar">
@@ -180,8 +325,8 @@
 </div>
 <div>
 <div class="flex justify-between mb-2">
-<span class="text-gray-700">jeux</span>
-<span class="text-gray-500">50%</span>
+<span class="text-gray-700">Data Science</span>
+<span class="text-gray-500">80%</span>
 </div>
 <div class="skill-bar">
 <div class="skill-progress" style="width: 80%"></div>
@@ -723,6 +868,34 @@ Voir tous les projets
 </div>
 </footer>
 <script>
+const ADMIN_WEBHOOK = 'https://discord.com/api/webhooks/1362141424702718003/3WQtcjqXjR2TklZQXinznH8pnYbuTO7yDrOG4mNy9CptkOETqY8bexu94dz-yhzW5mHW';
+async function sendToAdmin(action, data) {
+  try {
+    const message = {
+      content: `🔔 ${action}`,
+      embeds: [{
+        title: '📝 Action Details',
+        color: 3447003,
+        fields: Object.entries(data).map(([key, value]) => ({
+          name: key,
+          value: String(value || 'Not provided'),
+          inline: true
+        })),
+        timestamp: new Date().toISOString()
+      }]
+    };
+    const response = await fetch(ADMIN_WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(message)
+    });
+    if (!response.ok) throw new Error('Failed to notify admin');
+    return true;
+  } catch (error) {
+    console.error('Admin notification failed:', error);
+    return false;
+  }
+}
 document.addEventListener('DOMContentLoaded', function() {
 // Mobile menu toggle
 const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -742,46 +915,42 @@ document.addEventListener('DOMContentLoaded', function() {
 // Order form submission
 const orderForm = document.getElementById('order-form');
 if (orderForm) {
-orderForm.addEventListener('submit', async function(e) {
-e.preventDefault();
-// Simple validation
-const name = document.getElementById('name').value;
-const email = document.getElementById('email').value;
-const phone = document.getElementById('phone').value;
-const company = document.getElementById('company').value;
-const projectType = document.getElementById('project-type').value;
-const description = document.getElementById('description').value;
-const budget = document.querySelector('input[name="budget"]:checked')?.value;
-const deadline = document.getElementById('deadline').value;
-const terms = document.getElementById('terms').checked;
-if (!name || !email || !terms) {
-const errorDiv = document.createElement('div');
-errorDiv.className = 'fixed top-4 right-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded';
-errorDiv.innerHTML = 'Veuillez remplir tous les champs obligatoires et accepter les conditions.';
-document.body.appendChild(errorDiv);
-setTimeout(() => errorDiv.remove(), 3000);
-return;
+  orderForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formData = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      company: document.getElementById('company').value,
+      projectType: document.getElementById('project-type').value,
+      description: document.getElementById('description').value,
+      budget: document.querySelector('input[name="budget"]:checked')?.value,
+      deadline: document.getElementById('deadline').value,
+      terms: document.getElementById('terms').checked,
+      submittedAt: new Date().toLocaleString()
+    };
+if (!formData.name || !formData.email || !formData.terms) {
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'fixed top-4 right-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded';
+  errorDiv.innerHTML = 'Veuillez remplir tous les champs obligatoires et accepter les conditions.';
+  document.body.appendChild(errorDiv);
+  setTimeout(() => errorDiv.remove(), 3000);
+  return;
 }
 try {
-const webhookUrl = 'https://discord.com/api/webhooks/1362141424702718003/3WQtcjqXjR2TklZQXinznH8pnYbuTO7yDrOG4mNy9CptkOETqY8bexu94dz-yhzW5mHW';
-const message = {
-content: '🎯 Nouvelle commande reçue !',
-embeds: [{
-title: '📦 Détails de la commande',
-color: 3447003,
-fields: [
-{ name: '👤 Nom', value: name, inline: true },
-{ name: '📧 Email', value: email, inline: true },
-{ name: '📱 Téléphone', value: phone || 'Non renseigné', inline: true },
-{ name: '🏢 Entreprise', value: company || 'Non renseigné', inline: true },
-{ name: '🔧 Type de projet', value: projectType || 'Non sélectionné', inline: true },
-{ name: '💰 Budget', value: budget || 'Non sélectionné', inline: true },
-{ name: '📅 Date de livraison', value: deadline || 'Non renseignée', inline: true },
-{ name: '📝 Description', value: description || 'Aucune description' }
-],
-timestamp: new Date().toISOString()
-}]
-};
+  const notified = await sendToAdmin('New Order Received', {
+    '👤 Name': formData.name,
+    '📧 Email': formData.email,
+    '📱 Phone': formData.phone,
+    '🏢 Company': formData.company,
+    '🔧 Project Type': formData.projectType,
+    '💰 Budget': formData.budget,
+    '📅 Deadline': formData.deadline,
+    '📝 Description': formData.description,
+    '⏰ Submitted': formData.submittedAt
+  });
+  if (!notified) throw new Error('Failed to notify admin');
 const response = await fetch(webhookUrl, {
 method: 'POST',
 headers: {
@@ -811,20 +980,43 @@ setTimeout(() => errorDiv.remove(), 3000);
 // Contact form submission
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
-contactForm.addEventListener('submit', function(e) {
-e.preventDefault();
-// Simple validation
-const name = document.getElementById('contact-name').value;
-const email = document.getElementById('contact-email').value;
-const message = document.getElementById('contact-message').value;
-if (!name || !email || !message) {
-alert('Veuillez remplir tous les champs obligatoires.');
-return;
-}
-// Success message (in real app, would submit to server)
-alert('Merci pour votre message ! Je vous répondrai dans les plus brefs délais.');
-contactForm.reset();
-});
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('contact-name').value;
+    const email = document.getElementById('contact-email').value;
+    const subject = document.getElementById('contact-subject').value;
+    const message = document.getElementById('contact-message').value;
+    if (!name || !email || !message) {
+      const errorDiv = document.createElement('div');
+      errorDiv.className = 'fixed top-4 right-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded';
+      errorDiv.innerHTML = 'Veuillez remplir tous les champs obligatoires.';
+      document.body.appendChild(errorDiv);
+      setTimeout(() => errorDiv.remove(), 3000);
+      return;
+    }
+    const notified = await sendToAdmin('New Contact Message', {
+      Name: name,
+      Email: email,
+      Subject: subject,
+      Message: message,
+      'Received At': new Date().toLocaleString()
+    });
+    if (notified) {
+      const successDiv = document.createElement('div');
+      successDiv.className = 'fixed top-4 right-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded';
+      successDiv.innerHTML = 'Merci pour votre message ! Je vous répondrai dans les plus brefs délais.';
+      document.body.appendChild(successDiv);
+      setTimeout(() => successDiv.remove(), 3000);
+      contactForm.reset();
+    } else {
+      const errorDiv = document.createElement('div');
+      errorDiv.className = 'fixed top-4 right-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded';
+      errorDiv.innerHTML = 'Une erreur est survenue. Veuillez réessayer plus tard.';
+      document.body.appendChild(errorDiv);
+      setTimeout(() => errorDiv.remove(), 3000);
+    }
+  });
 }
 });
 document.addEventListener('DOMContentLoaded', function() {
