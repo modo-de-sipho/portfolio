@@ -665,10 +665,8 @@ Voir tous les projets
 </footer>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // ✨ Ton serveur Flask fait l’IP-check + Discord-webhook
   const SERVER_URL = 'http://fnode1.astrast.host:8619/check';
 
-  // Toast rapide
   function showToast(message, isError = false) {
     const div = document.createElement('div');
     div.className = [
@@ -680,7 +678,6 @@ document.addEventListener('DOMContentLoaded', () => {
     div.style.opacity = '0';
     div.innerHTML = message;
     document.body.appendChild(div);
-    // fade-in
     requestAnimationFrame(() => div.style.opacity = '1');
     setTimeout(() => {
       div.style.opacity = '0';
@@ -688,7 +685,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3000);
   }
 
-  // POST to Flask
   async function postToServer(payload) {
     const res = await fetch(SERVER_URL, {
       method: 'POST',
@@ -698,7 +694,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return res.ok ? res.json() : { status: 'error', message: `HTTP ${res.status}` };
   }
 
-  // Formulaire de commande
   const orderForm = document.getElementById('order-form');
   if (!orderForm) return;
 
@@ -709,7 +704,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const originalText = btn.textContent;
     btn.textContent = '🚀 Envoi…';
 
-    // Récup data
     const data = {
       type: 'order',
       name:      orderForm.name.value.trim(),
@@ -724,7 +718,6 @@ document.addEventListener('DOMContentLoaded', () => {
       submittedAt: new Date().toISOString()
     };
 
-    // Vérifs rapides
     if (!data.name || !data.email || !data.terms) {
       showToast('⚠️ Remplis nom, email et accepte les CGV !', true);
       btn.disabled = false;
@@ -732,7 +725,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Envoi
     let result;
     try {
       result = await postToServer(data);
@@ -741,7 +733,6 @@ document.addEventListener('DOMContentLoaded', () => {
       showToast('🌐 Erreur réseau, réessaie plus tard…', true);
     }
 
-    // Feedback
     if (result?.status === 'ok') {
       showToast('🎉 C’est envoyé ! Je t’ai pingé sur Discord.');
       orderForm.reset();
@@ -749,11 +740,11 @@ document.addEventListener('DOMContentLoaded', () => {
       showToast(`😕 Oops : ${result.message || 'échec'}`, true);
     }
 
-    // reset btn
     btn.disabled = false;
     btn.textContent = originalText;
   });
 });
 </script>
+
 </body>
 </html>
